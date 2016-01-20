@@ -13,3 +13,4 @@
 /tmp
 
 *.yml
+db/seeds.rb
