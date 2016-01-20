@@ -1,0 +1,9 @@
+<h2><%=@category.name%></h2>
+<ul>
+<% @category.products.each do |product| %>
+<li><%= link_to product.name, category_product_path(category_id: @category.id, id: product.id) %></li>
+<% end %>
+</ul>
+<%= link_to 'Edit', edit_category_path %><br>
+<%=link_to 'Delete', category_path, method: :delete, data: { confirm: "Delete #{@category.name}?"}%><br>
+<%= link_to 'Back', admin_path %>

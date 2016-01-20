@@ -5,6 +5,7 @@ class AdminController < ApplicationController
 
   def show
     @categories = Category.all
+    @products = Product.all
     render 'show'
   end
 

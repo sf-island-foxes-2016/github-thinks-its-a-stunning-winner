@@ -12,6 +12,12 @@
 #
 # The `.rspec` file also contains a few flags that are not defaults but that
 # users commonly want.
+
+### SIMPLE COV GEM TO TEST TEST COVERAGE
+require 'simplecov'
+SimpleCov.start
+
+
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|

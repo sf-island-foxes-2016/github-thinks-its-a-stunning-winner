@@ -1,0 +1,12 @@
+<h2><%=@product.name%></h2>
+
+<ul>
+  <li><%="Stock: #{@product.stock_count}"%></li>
+  <li><%= "Price: $#{@product.price}" %></li>
+</ul>
+
+<p> Image goes Here </p>
+
+<%= link_to 'Edit', edit_category_product_path %><br>
+<%=link_to 'Delete', category_product_path, method: :delete, data: { confirm: "Delete #{@product.name}?"}%><br>
+<%= link_to 'Back', admin_path %>
