@@ -1,13 +1,12 @@
-class AdminController < ApplicationController
+class UserController < ApplicationController
 
   def index
   end
 
   def show
-    unless session[:admin_id]
+    unless session[:user_id]
       redirect_to login_path
     end
-    @categories = Category.all
     @products = Product.all
     render 'show'
   end

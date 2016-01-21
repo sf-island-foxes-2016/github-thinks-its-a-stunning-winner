@@ -1,16 +1,13 @@
 class ProductController < ApplicationController
 
   def new
-    @category = Category.find(params[:category_id])
     render 'new'
   end
 
   def create
-    @category = Category.find(params[:category_id])
-    @product = @category.products.new(product_params)
-    @product.category = @category
+    @product = Product.new(product_params)
     if @product.save
-      redirect_to admin_path(id: session[:admin_id])
+      redirect_to user_path(id: session[:user_id])
     else
       render 'new'
     end
@@ -21,25 +18,22 @@ class ProductController < ApplicationController
   end
 
   def edit
-    @category = Category.find(params[:category_id])
-    @product = @category.products.find(params[:id])
+    @product = Product.find(params[:id])
   end
 
   def update
-    @category = Category.find(params[:category_id])
-    @product = @category.products.find(params[:id])
+    @product = Product.find(params[:id])
     if @product.update(product_params)
-      redirect_to category_product_path
+      redirect_to product_path
     else
       render 'edit'
     end
   end
 
   def destroy
-    @category = Category.find(params[:category_id])
-    @product = @category.products.find(params[:id])
+    @product = Product.find(params[:id])
     if @product.destroy
-      redirect_to admin_path(id: session[:admin_id])
+      redirect_to user_path(id: session[:user_id])
     else
       render 'show'
     end
@@ -48,7 +42,7 @@ class ProductController < ApplicationController
   private
 
     def product_params
-      params.require(:product).permit(:stock_count, :name, :price, :image, :category, :category_id)
+      params.require(:product).permit(:stock_count, :name, :price, :image, :category)
     end
 
 end

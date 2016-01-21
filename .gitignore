@@ -12,7 +12,7 @@
 !/log/.keep
 /tmp
 
-*.yml
+
 db/seeds.rb
 
 coverage

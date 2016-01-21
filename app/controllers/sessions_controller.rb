@@ -1,19 +1,19 @@
 class SessionsController < ApplicationController
 
   def create
-    @admin = Admin.find_by(username: params[:session][:username])
+    @user = User.find_by(username: params[:session][:username])
     p params
-    if @admin && @admin.password == params[:session][:password]
-      session[:admin_id] = @admin.id
-      p session[:admin_id]
-      redirect_to @admin
+    if @user && @user.password == params[:session][:password]
+      session[:user_id] = @user.id
+      p session[:user_id]
+      redirect_to @user
     else
       render 'sessions/new'
     end
   end
 
   def destroy
-    session[:admin_id] = nil
+    session[:user_id] = nil
     redirect_to root_path
   end
 
