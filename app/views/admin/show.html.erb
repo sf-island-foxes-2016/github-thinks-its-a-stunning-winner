@@ -1,0 +1,25 @@
+<h1>Admin Homepage</h1>
+<div class="homepage-link-container">
+  <%= link_to "Logout", logout_path, method: :delete%>
+</div>
+<div class="homepage-link-container">
+  <%= link_to 'New Category', new_category_path %>
+</div>
+
+<% @categories.each do |category| %>
+<div class="homepage-link-container">
+  <%= link_to "Edit #{category.name} Category", category_path(category) %><br>
+</div>
+<div class="homepage-link-container">
+  <%= link_to "New Product in #{category.name} Category", new_category_product_path(category_id: category.id) %>
+  <br>
+</div>
+<% category.products.each do |product| %>
+<div class="homepage-link-container">
+  <%= link_to "Edit #{product.name}", category_product_path(category_id: category.id, id: product.id) %>
+</div>
+<%end%>
+<% end %>
+
+
+

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Product do
-  category = Category.find_by(name: 'Stationery')
+  category = Category.find_or_create_by(name: 'Stationery')
   context 'new Product' do
     it 'is valid with a stock count, name, price, image, and category' do
       product = Product.new(stock_count: 3, name: "Notebook", price: 10, image: "/products/notebook.jpg", category: category)
