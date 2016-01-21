@@ -1,18 +1,22 @@
-class UserController < ApplicationController
+class UsersController < ApplicationController
+  def index
+    redirect_to root_path
+  end
 
   def create
-    user = User.new(user_params)
-    user.title = 'user'
-    user.title = 'admin' if user.username == 'jon' || user.username == 'mia'
-    if user.save
-      session[:user_id] = user.id
-      redirect_to user_path(id: user.id)
+    @user = User.new(user_params)
+    @user.title = 'user'
+    @user.title = 'admin' if @user.username == 'jon' || user.username == 'mia'
+    if @user.save
+      session[:user_id] = @user.id
+      redirect_to users_path(id: @user.id)
     else
       render 'new'
     end
   end
 
   def new
+    @user = User.new
   end
 
   def edit
@@ -31,7 +35,7 @@ class UserController < ApplicationController
   def update
     user = User.find(session[:user_id])
     if user.update(user_params)
-      redirect_to user_path
+      redirect_to users_path
     else
       render 'edit'
     end
