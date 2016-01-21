@@ -2,11 +2,11 @@ require 'spec_helper'
 
 
 
-RSpec.describe AdminController, :type => :controller do
+RSpec.describe UserController, :type => :controller do
 
-  describe "Admin is logged out" do
-    it 'cannot access admin page' do
-      visit '/admin/1'
+  describe "User is logged out" do
+    it 'cannot access user page' do
+      visit '/user/1'
       expect(page).to_not have_selector(".logout")
     end
 
@@ -19,7 +19,7 @@ RSpec.describe AdminController, :type => :controller do
     end
   end
 
-  describe 'Admin is logged in' do
+  describe 'User is logged in' do
     it 'allows logout' do
       visit '/login'
       fill_in 'Username', :with => 'admin'
