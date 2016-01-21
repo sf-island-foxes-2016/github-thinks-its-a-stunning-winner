@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+
   def create
     @admin = Admin.find_by(username: params[:session][:username])
     p params
@@ -10,4 +11,11 @@ class SessionsController < ApplicationController
       render 'sessions/new'
     end
   end
+
+  def destroy
+    session[:admin_id] = nil
+    redirect_to root_path
+  end
+
+
 end

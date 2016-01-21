@@ -1,6 +1,6 @@
 <h1>Admin Homepage</h1>
 <div class="homepage-link-container">
-  <%= link_to "Logout", logout_path %>
+  <%= link_to "Logout", logout_path, method: :delete%>
 </div>
 <div class="homepage-link-container">
   <%= link_to 'New Category', new_category_path %>

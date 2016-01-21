@@ -18,3 +18,13 @@ Version 0.5
   edit or remove redirects to Admin homepage
   Homepage has a logout link
   logout link redirects to ROOT PAGE
+---
+clearly seperate views edit product/category
+dropdown option for edit?
+admin without login :: AbstractController::DoubleRenderError in AdminController#sho
+product list without logging in
+views same but without edit/delete type actions?
+controll auth on update/delete
+admin into user- with admin abilities
+minimize complexity for products by removing categories
+product tests -- feature or controller

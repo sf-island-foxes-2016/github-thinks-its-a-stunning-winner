@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :admin do
-    username "MyString"
-    password_hash "MyString"
+    username "sue"
+    password "puppies"
   end
 end
