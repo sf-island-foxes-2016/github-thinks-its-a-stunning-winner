@@ -1,13 +1,17 @@
-class ProductController < ApplicationController
+class ProductsController < ApplicationController
+
+  def index
+    redirect_to root_path
+  end
 
   def new
-    render 'new'
+    @product = Product.new
   end
 
   def create
     @product = Product.new(product_params)
     if @product.save
-      redirect_to user_path(id: session[:user_id])
+      redirect_to users_path(id: session[:user_id])
     else
       render 'new'
     end
@@ -15,7 +19,9 @@ class ProductController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    if session[:user_id]
     @user = User.find(session[:user_id])
+    end
   end
 
   def edit
@@ -27,19 +33,19 @@ class ProductController < ApplicationController
     @user = User.find(session[:user_id])
     if @user.title == "admin"
     if @product.update(product_params)
-      redirect_to product_path
+      redirect_to products_path
     else
       render 'edit'
     end
   else
-    redirect_to user_path
+    redirect_to users_path
   end
 end
 
   def destroy
     @product = Product.find(params[:id])
     if @product.destroy
-      redirect_to user_path(id: session[:user_id])
+      redirect_to users_path(id: session[:user_id])
     else
       render 'show'
     end
