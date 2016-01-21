@@ -19,6 +19,7 @@ Version 0.5
   Homepage has a logout link
   logout link redirects to ROOT PAGE
 ---
+JULIAN CHECKIN
 clearly separate views edit product/category
 dropdown option for edit?
 admin without login :: AbstractController::DoubleRenderError in AdminController#sho
@@ -28,3 +29,7 @@ controll auth on update/delete
 admin into user- with admin abilities
 minimize complexity for products by removing categories
 product tests -- feature or controller
+------
+
+WED NIGHT NOTES
+Admin-titled users should be able to promote other users to admin, but other crud is in place
