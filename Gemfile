@@ -57,3 +57,5 @@ group :test do
   gem 'selenium-webdriver', '~> 2.43.0'
   gem 'simplecov', :require => false
 end
+
+gem 'rails_12factor', group: :production
