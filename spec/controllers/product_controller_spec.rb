@@ -1,12 +1,12 @@
 require 'rails_helper'
 
 require 'rails_helper'
-RSpec.describe ProductController, type: :controller do
+RSpec.describe ProductsController, type: :controller do
   describe "index action" do
 
     before do
       @all_products = 3.times.map do |n|
-        Product.create(name: "Dog #{n}", description: "ugly", price: 20.0, category_id: 1)
+        Product.create(stock_count: 3, name: "Notebook #{n}", price: 10, image: "/products/notebook.jpg", category: 'category')
       end
     end
 
