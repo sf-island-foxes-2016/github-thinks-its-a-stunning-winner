@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
       p session[:user_id]
       redirect_to @user
     else
+      @errors = @user.errors.full_messages
       render 'sessions/new'
     end
   end
@@ -16,6 +17,5 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     redirect_to root_path
   end
-
 
 end
