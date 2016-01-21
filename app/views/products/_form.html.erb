@@ -1,22 +1,32 @@
-<%= form_for [@category, @product], url: category_product_path(@category, @product) do |f| %>
+<%= form_for @product do |f| %>
 
   <p>
-    <%= f.label :name %>
+    <%= f.label :name %><br>
     <%= f.text_field :name %>
   </p>
+
   <p>
-    <%= f.label :price %>
+    <%= f.label :category %><br>
+    <%= f.text_field :category %>
+  </p>
+
+  <p>
+    <%= f.label :price %><br>
     <%= f.text_field :price %>
   </p>
+
   <p>
     <%= f.label :stock_count %>
     <%= f.text_field :stock_count %>
   </p>
+
   <p>
     <%= f.label :image %>
     <%= f.text_field :image %>
   </p>
+
   <p>
     <%= f.submit %>
   </p>
+
 <% end %>
