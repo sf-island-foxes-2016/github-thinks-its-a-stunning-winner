@@ -1,0 +1,15 @@
+<h2>New User</h2>
+
+<%= form_for :user, url: user_index_path do |f| %>
+  <p>
+    <%= f.label :username %>
+    <%= f.text_field :username %>
+  </p>
+  <p>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
