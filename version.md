@@ -19,7 +19,7 @@ Version 0.5
   Homepage has a logout link
   logout link redirects to ROOT PAGE
 ---
-clearly seperate views edit product/category
+clearly separate views edit product/category
 dropdown option for edit?
 admin without login :: AbstractController::DoubleRenderError in AdminController#sho
 product list without logging in

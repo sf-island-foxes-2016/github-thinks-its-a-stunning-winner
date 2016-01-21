@@ -1,1 +1,8 @@
-<%= link_to "Admin Login", login_path %>
+<% @products.each do |product| %>
+  <div class="product-display-container">
+    <img src="<%=product.image%>"></img><br>
+    <b><%= link_to product.name, product_path(id: product.id) %></b>
+    <br>
+    <em>$<%=product.price%></em>
+  </div>
+  <%end%>

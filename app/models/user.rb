@@ -1,8 +1,9 @@
 require 'bcrypt'
 
-class Admin < ActiveRecord::Base
+class User < ActiveRecord::Base
 
   validates :username, uniqueness: true
+  validates :title, presence: true
   validates :username, :password, presence: true
 
   # users.password_hash in the database is a :string

@@ -15,6 +15,7 @@ class ProductController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    @user = User.find(session[:user_id])
   end
 
   def edit
@@ -23,12 +24,17 @@ class ProductController < ApplicationController
 
   def update
     @product = Product.find(params[:id])
+    @user = User.find(session[:user_id])
+    if @user.title == "admin"
     if @product.update(product_params)
       redirect_to product_path
     else
       render 'edit'
     end
+  else
+    redirect_to user_path
   end
+end
 
   def destroy
     @product = Product.find(params[:id])
