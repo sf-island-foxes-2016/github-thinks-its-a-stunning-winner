@@ -15,7 +15,9 @@ class ProductController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    if session[:user_id]
     @user = User.find(session[:user_id])
+    end
   end
 
   def edit
