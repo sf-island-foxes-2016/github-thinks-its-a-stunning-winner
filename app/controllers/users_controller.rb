@@ -4,12 +4,12 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.new(user_params)
-    user.title = 'user'
-    user.title = 'admin' if user.username == 'jon' || user.username == 'mia'
-    if user.save
-      session[:user_id] = user.id
-      redirect_to users_path(id: user.id)
+    @user = User.new(user_params)
+    @user.title = 'user'
+    @user.title = 'admin' if @user.username == 'jon' || user.username == 'mia'
+    if @user.save
+      session[:user_id] = @user.id
+      redirect_to users_path(id: @user.id)
     else
       render 'new'
     end
