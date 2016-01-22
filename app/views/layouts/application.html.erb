@@ -44,7 +44,7 @@
 <div class="container"><div class="menu-icon"><span></span></div></div>
 <%if session[:user_id]%>
 <%@user=User.find(session[:user_id])%>
-<h1>Welcome, <%=@user.username%>!</h1>
+<div class="jumbotron"><h2>Welcome, <%=@user.username%>!</h2><p>This is a shop full of things</p></div>
 <%end%>
 </header>
 
