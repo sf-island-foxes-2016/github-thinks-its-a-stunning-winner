@@ -14,7 +14,18 @@
  *= require_self
  */
 
+
  body {
   width: 95%;
   margin: 0 auto;
+  background-image: linear-gradient(to bottom right, #000000 0%, #FFFFFF 50%, #91D2D0 75%, #3BD9D4 87.5%, #000000 100%);
+  background-repeat: no-repeat;
+ }
+
+  .well {
+    border-radius: 50%;
+  }
+
+ h1 {
+  display: block;
  }

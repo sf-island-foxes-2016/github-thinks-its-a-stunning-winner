@@ -1,15 +1,14 @@
-<h1>Welcome, <%=@user.username%>!</h1>
-
-<% @products.each do |product| %>
-  <div class="product-display-container">
-    <img src="<%=product.image%>"></img><br>
-    <b><%= link_to product.name, product_path(id: product.id) %></b>
-    <em><%=product.price%></em>
-  </div>
-<% end %>
-<% if admin? %>
+<% if @user.title == "admin" %>
   <div class="homepage-link-container">
     <%= link_to "New Product", new_product_path %><br>
   </div>
 <%end%>
+<% @products.each do |product| %>
+  <div class="product-display-container col-xs-3">
+    <img class="thumbnail" src="<%=product.image%>"></img><br>
+    <b><%= link_to product.name, product_path(id: product.id) %></b>
+    <em><%=product.price%></em>
+  </div>
+<% end %>
+
 
