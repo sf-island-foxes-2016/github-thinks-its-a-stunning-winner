@@ -21,6 +21,8 @@ Rails.application.routes.draw do
 
   resources :users
   resources :products
+  resources :carts
+  resources :categories
 
   # Example resource route with options:
   #   resources :products do

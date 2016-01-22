@@ -1,5 +1,5 @@
 class Product < ActiveRecord::Base
-  validates :stock_count, :name, :price, :category, presence: true
+  validates :name, :price, :category, presence: true
   validates :name, uniqueness: true
 
   has_many :cart_products
