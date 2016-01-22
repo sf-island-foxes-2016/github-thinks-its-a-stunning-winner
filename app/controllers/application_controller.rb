@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   end
 
   def admin?
-    current_user && (current_user.title == "admin"  || (current_user.username == "admin"))
+    current_user && current_user.title == "admin"
   end
   helper_method :admin?
 

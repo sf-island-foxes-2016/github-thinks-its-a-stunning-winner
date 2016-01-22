@@ -32,7 +32,6 @@ describe Product do
   it { should validate_uniqueness_of(:name) }
   it { should validate_presence_of(:price) }
   it { should validate_presence_of(:category) }
-  it { should validate_presence_of(:stock_count) }
   # Associations
   it { should belong_to(:category) }
   it { should have_many(:carts).through(:cart_products) }
