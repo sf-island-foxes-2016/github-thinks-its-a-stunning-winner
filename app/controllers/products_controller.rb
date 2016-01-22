@@ -3,10 +3,12 @@ class ProductsController < ApplicationController
   before_action :authorize, except: [:index, :show]
 
   def index
+    @categories = Category.all
     @products = Product.all
   end
 
   def new
+    @categories = Category.all
     @product = Product.new
   end
 
@@ -27,6 +29,7 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    @categories = Category.all
     @product = Product.find(params[:id])
   end
 
@@ -37,7 +40,7 @@ class ProductsController < ApplicationController
     else
       render 'edit'
     end
-end
+  end
 
   def destroy
     @product = Product.find(params[:id])
@@ -51,7 +54,7 @@ end
   private
 
     def product_params
-      params.require(:product).permit(:stock_count, :name, :price, :image, :category)
+      params.require(:product).permit(:name, :price, :image, :category_id)
     end
 
 end
