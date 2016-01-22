@@ -21,17 +21,12 @@
 
   <p>
     <%= f.label :category %><br>
-    <%= f.text_field :category %>
+    <%= f.collection_select :category_id, @categories, :id, :name %>
   </p>
 
   <p>
     <%= f.label :price %><br>
     <%= f.text_field :price %>
-  </p>
-
-  <p>
-    <%= f.label :stock_count %>
-    <%= f.text_field :stock_count %>
   </p>
 
   <p>
