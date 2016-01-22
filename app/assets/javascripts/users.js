@@ -1,10 +1,11 @@
-function showEditMenu() {
-    document.getElementById("editMenuDropdown").classList.toggle("show");
+function showProductsMenu() {
+    document.getElementById("edit-products-Dropdown").classList.toggle("show");
 }
-window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
 
-    var dropdowns = document.getElementsByClassName("dropdown-content");
+window.onclick = function(event) {
+  if (!event.target.matches('#edit-product-button')) {
+
+    var dropdowns = document.getElementsByClassName("product-dropdown");
     var i;
     for (i = 0; i < dropdowns.length; i++) {
       var openDropdown = dropdowns[i];
@@ -14,3 +15,5 @@ window.onclick = function(event) {
     }
   }
 }
+
+
