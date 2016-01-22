@@ -9,7 +9,7 @@ class Product < ActiveRecord::Base
   def add_to_cart(units = 1)
     # if @stock >= units
     # check whether already in cart
-    CartProduct.create(product_id: id, user_id = session[:user_id], quantity: units, quoted_price = @price )
+    CartProduct.create(product_id: id, user_id: session[:user_id], quantity: units, quoted_price: @price )
   end
 
   def replenish_stock(units = 1)
