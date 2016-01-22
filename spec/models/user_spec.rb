@@ -16,4 +16,14 @@ describe User do
       expect(user2.valid?).to be false
     end
   end
+  context 'testing validations and associations' do
+      # Basic validations
+    it { should validate_presence_of(:username) }
+    it { should validate_presence_of(:title) }
+    # it { should validate_uniqueness_of(:username) }
+    # Associations
+    it { should have_many(:addresses) }
+    it { should have_many(:financial_informations) }
+    it { should belong_to(:more_complex_tests) }
+  end
 end
