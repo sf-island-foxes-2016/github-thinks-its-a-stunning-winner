@@ -1,15 +1,7 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 FactoryGirl.define do
-  factory :admin do
-    username { Faker::Internet.user_name }
-    email { Faker::Internet.email }
-    title "admin"
-    password { Faker::Internet.user_name }
-  end
-
   factory :user do
     username { Faker::Internet.user_name }
-    email { Faker::Internet.email }
     title "user"
     password { Faker::Internet.user_name }
   end
