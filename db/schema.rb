@@ -39,6 +39,8 @@ ActiveRecord::Schema.define(version: 20160122055228) do
   create_table "carts", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "product_id"
+    t.float    "unit_price"
+    t.integer  "count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -60,12 +62,12 @@ ActiveRecord::Schema.define(version: 20160122055228) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer  "address_id_id"
-    t.integer  "billing_information_id_id"
+    t.string   "status"
+    t.integer  "address_id"
+    t.integer  "financial_information_id"
     t.integer  "cart_id"
-    t.integer  "user_id"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "products", force: :cascade do |t|
@@ -86,12 +88,15 @@ ActiveRecord::Schema.define(version: 20160122055228) do
 
   create_table "shipping_costs", force: :cascade do |t|
     t.float    "cost"
+    t.string   "state"
+    t.integer  "shipper_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "taxes", force: :cascade do |t|
     t.string   "state"
+    t.float    "rate"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

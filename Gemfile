@@ -56,6 +56,8 @@ group :test do
   gem 'launchy', '~> 2.4.2'
   gem 'selenium-webdriver', '~> 2.43.0'
   gem 'simplecov', :require => false
+  gem 'shoulda'
+  gem 'shoulda-callback-matchers', '~> 1.1.1'
 end
 
 gem 'rails_12factor', group: :production

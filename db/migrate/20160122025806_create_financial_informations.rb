@@ -4,7 +4,7 @@ class CreateFinancialInformations < ActiveRecord::Migration
       t.integer :card_num
       t.integer :expiry
       t.integer :ccid
-      t.integer :address_id
+      t.belongs_to :address
       t.belongs_to :user
 
       t.timestamps null: false

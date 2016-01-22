@@ -26,24 +26,18 @@ RSpec.describe Product do
   end
 end
 
-# describe Product do
-#     # Basic validations
-#     it { should validate_presence_of(:name) }
-#     it { should validate_uniqueness_of(:name) }
-#     it { should validate_presence_of(:price) }
-#     it { should validate_presence_of(:description) }
-#     it { should validate_presence_of(:category_id) }
-#     # Associations
-#     it { should belong_to(:category) }
-#     it { should have_many(:users).through(:shopping_carts) }
-# end
-
-
-# describe Product do
-#   it "creates an item" do
-#     expect(Product.create(name: "Dog", description: "ugly", price: 20.0, category_id: 1)).to be_valid
-#   end
-# end
+describe Product do
+  # Basic validations
+  it { should validate_presence_of(:name) }
+  it { should validate_uniqueness_of(:name) }
+  it { should validate_presence_of(:price) }
+  it { should validate_presence_of(:category) }
+  it { should validate_presence_of(:stock_count) }
+  # Associations
+  it { should belong_to(:category) }
+  it { should have_many(:carts).through(:cart_products) }
+  it { should have_many(:cart_products) }
+end
 
 # describe "responds to its methods" do
 #   let(:product){Product.create(name: "Dog", description: "ugly", price: 20.0, category_id: 1)}
