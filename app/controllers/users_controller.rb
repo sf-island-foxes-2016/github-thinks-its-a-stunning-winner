@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+
+  before_action :authorize, except: [:new, :create, :edit]
+
   def index
     redirect_to root_path
   end

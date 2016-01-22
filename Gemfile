@@ -28,7 +28,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
-
+gem 'faker', '~> 1.4.3'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -50,7 +50,7 @@ end
 
 group :test do
   #Rspec gems
-  gem 'faker', '~> 1.4.3'
+
   gem 'capybara', "~> 2.4.3"
   gem 'database_cleaner', '~> 1.3.0'
   gem 'launchy', '~> 2.4.2'
