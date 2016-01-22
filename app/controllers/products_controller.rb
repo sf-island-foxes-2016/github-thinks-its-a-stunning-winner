@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
 
   def index
+    @products = Product.all
     redirect_to root_path
   end
 
@@ -30,16 +31,16 @@ class ProductsController < ApplicationController
 
   def update
     @product = Product.find(params[:id])
-    @user = User.find(session[:user_id])
-    if @user.title == "admin"
+    # @user = User.find(session[:user_id])
+    # if @user.title == "admin"
     if @product.update(product_params)
       redirect_to products_path
     else
       render 'edit'
     end
-  else
-    redirect_to users_path
-  end
+  # else
+  #   redirect_to users_path
+  # end
 end
 
   def destroy
