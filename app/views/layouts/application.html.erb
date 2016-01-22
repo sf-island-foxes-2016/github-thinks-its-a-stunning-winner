@@ -14,10 +14,10 @@
 <nav class="navbar navbar-inverse navbar">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="/">Shop</a>
-    </div>
+      <a class="active navbar-brand" href="/">Shop</a>
+  </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
+      <li><a href="/">Home</a></li>
      <% if session[:user_id]%>
       <%@user = User.find(session[:user_id])%>
     <li>
@@ -41,6 +41,19 @@
       <%end%>
     </ul>
   </div>
+
+
+<div class="nav-dropdown nav navbar-nav navbar-right">
+    <button onclick="showCategoriesMenu()" class="dropbtn" id="shop-by-category-button">Shop By Category</button>
+      <div id="shop-by-category-Dropdown" class="category-dropdown dropdown-content">
+        <% Category.all.each do |category| %>
+        <%= link_to category.name, category_path(id: category.id) %>
+        <% end %>
+      </div>
+  </div>
+
+
+
 </nav>
 <div class="container"><div class="menu-icon"><span></span></div></div>
 <%if session[:user_id]%>

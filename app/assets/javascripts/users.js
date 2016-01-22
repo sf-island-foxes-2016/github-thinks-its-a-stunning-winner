@@ -16,19 +16,4 @@ window.onclick = function(event) {
   }
 }
 
-function showCategoriesMenu(){
-  document.getElementById("edit-category-Dropdown").classList.toggle("show");
-}
-window.onclick = function(event) {
-  if (!event.target.matches('#edit-category-button')) {
 
-    var dropdowns = document.getElementsByClassName("category-dropdown");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-  }
-}

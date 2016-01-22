@@ -37,9 +37,18 @@ body {
   top: 1em;
   right: 4.2em;
 }
+
 .new-btn{
+  border-radius: 50%;
    position: absolute;
-   left: 4.3em;
-   top: 5em;
+   left: 4.2em;
+   top: 6em;
+   text-decoration: none
 }
 
+.edit-btn {
+  border-radius: 50%;
+  position: absolute;
+  left: 3.8em;
+  bottom: 6em;
+}

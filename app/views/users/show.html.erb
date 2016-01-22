@@ -10,7 +10,7 @@
         <div class="col-lg-4">
           <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="200" height="200">
     <div class="dropdown">
-    <button onclick="showProductsMenu()" class="dropbtn" id="edit-product-button">Edit Product</button>
+    <button onclick="showProductsMenu()" class="edit-btn" id="edit-product-button">Edit Product</button>
       <div id="edit-products-Dropdown" class="product-dropdown dropdown-content">
         <% @products.each do |product| %>
         <%= link_to product.name, product_path(id: product.id) %>
@@ -20,14 +20,9 @@
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
           <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="200" height="200">
-  <div class="dropdown">
-    <button onclick="showCategoriesMenu()" class="dropbtn" id="edit-category-button">Edit Category</button>
-      <div id="edit-category-Dropdown" class="category-dropdown dropdown-content">
-        <% @categories.each do |category| %>
-        <%= link_to category.name, category_path(id: category.id) %>
-        <% end %>
-      </div>
-  </div>
+  <div class="new-button">
+          <button class="new-btn"> <a href="/categories/new">New Category</a></button>
+        </div>
         </div><!-- /.col-lg-4 -->
       </div><!-- /.row -->
 <%end%>

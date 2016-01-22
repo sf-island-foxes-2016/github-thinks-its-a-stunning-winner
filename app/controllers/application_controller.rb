@@ -17,4 +17,8 @@ class ApplicationController < ActionController::Base
   end
   helper_method :admin?
 
+  def all_categories
+    Category.all
+  end
+
 end
