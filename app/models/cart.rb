@@ -21,7 +21,7 @@ class Cart < ActiveRecord::Base
   end
 
   def self.current
-    Cart.find_by (user_id: session[:user_id], order_id: nil)
+    Cart.find_by(user_id: session[:user_id], order_id: nil)
   end
 
 end

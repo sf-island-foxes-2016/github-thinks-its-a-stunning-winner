@@ -12,21 +12,21 @@ RSpec.describe ProductsController, type: :controller do
 
     before do
       @all_products = 3.times.map do |n|
-        Product.create(stock_count: 3, name: "Notebook #{n}", price: 10, image: "/products/notebook.jpg", category: "category")
+        Product.create( name: "Notebook #{n}", price: 10, image: "/products/notebook.jpg", category_id: 1)
       end
     end
 
     it 'should load all products' do
       get :index
       expect(assigns[:products]).to eq @all_products
-      expect(response.status).to eq 302
+      expect(response.status).to eq 200
       # expect(response).to have_rendered(:index)
     end
   end
 
   describe "#show" do
     before do
-      @product = Product.create( id: 1, stock_count: 3, name: "Notebook", price: 10, image: "/products/notebook.jpg", category: "category")
+      @product = Product.create( id: 1,  name: "Notebook", price: 10, image: "/products/notebook.jpg", category_id: 1)
     end
 
     it 'should load product' do
@@ -40,14 +40,14 @@ RSpec.describe ProductsController, type: :controller do
     describe "#new" do
       it 'should load form' do
       get :new
-      expect(response.status).to eq 200
+      expect(response.status).to eq 302
       expect(response).to have_rendered(:new)
     end
   end
 
   describe "#edit" do
     before do
-      @product = Product.create( id: 10, stock_count: 3, name: "Notebook", price: 10, image: "/products/notebook.jpg", category: "category")
+      @product = Product.create( id: 10,  name: "Notebook", price: 10, image: "/products/notebook.jpg", category_id: 1)
     end
 
     it 'should load product to be edited' do
@@ -59,7 +59,7 @@ RSpec.describe ProductsController, type: :controller do
   end
 
   describe 'POST #create' do
-    let(:attributes){ {stock_count: 3, name: "Notebook", price: 10, image: "/products/notebook.jpg", category: "category"}}
+    let(:attributes){ { name: "Notebook", price: 10, image: "/products/notebook.jpg", category_id: 1}}
     it "provides correct response" do
       post :create, :product => attributes
       expect(response.status).to eq(302)
@@ -67,9 +67,9 @@ RSpec.describe ProductsController, type: :controller do
   end
 
   # describe 'PUT #update' do
-  #   let(:attributes){ {stock_count: 3, name: "Dog", price: 10, image: "/products/notebook.jpg", category: "category"}}
+  #   let(:attributes){ { name: "Dog", price: 10, image: "/products/notebook.jpg", category_id: 1}}
   #   before do
-  #     @product = Product.create!(id: 100, stock_count: 3, name: "Notebook", price: 10, image: "/products/notebook.jpg", category: "category")
+  #     @product = Product.create!(id: 100,  name: "Notebook", price: 10, image: "/products/notebook.jpg", category_id: 1)
   #   end
   #   it "provides correct response" do
   #     patch :update, :product => attributes
@@ -80,7 +80,7 @@ RSpec.describe ProductsController, type: :controller do
 
   describe 'DELETE #destroy' do
     before do
-      @product = Product.create!(id: 1000, stock_count: 3, name: "Notebook", price: 10, image: "/products/notebook.jpg", category: "category")
+      @product = Product.create!(id: 1000,  name: "Notebook", price: 10, image: "/products/notebook.jpg", category_id: 1)
     end
     it 'decrements products by one' do
       expect {
