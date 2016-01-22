@@ -1,6 +1,6 @@
 <% @products.each do |product| %>
-  <div class="product-display-container">
-    <img src="<%=product.image%>"></img><br>
+  <div class="product-display-container col-sm-4">
+    <img class="well" src="<%=product.image%>"></img><br>
     <b><%= link_to product.name, product_path(id: product.id) %></b>
     <br>
     <em>$<%=product.price%></em>
