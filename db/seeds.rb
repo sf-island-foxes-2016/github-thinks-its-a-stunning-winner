@@ -7,7 +7,7 @@ Product.create(
     name: Faker::Commerce.product_name,
     price: rand(5..100),
     image: Faker::Avatar.image,
-    category: rand(1..5)
+    category_id: rand(1..5)
     )
   end
 

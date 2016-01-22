@@ -3,11 +3,12 @@ class ProductsController < ApplicationController
   before_action :authorize, except: [:index, :show]
 
   def index
+    @categories = Category.all
     @products = Product.all
-    redirect_to root_path
   end
 
   def new
+    @categories = Category.all
     @product = Product.new
   end
 
@@ -28,22 +29,18 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    @categories = Category.all
     @product = Product.find(params[:id])
   end
 
   def update
     @product = Product.find(params[:id])
-    # @user = User.find(session[:user_id])
-    # if @user.title == "admin"
     if @product.update(product_params)
       redirect_to products_path
     else
       render 'edit'
     end
-  # else
-  #   redirect_to users_path
-  # end
-end
+  end
 
   def destroy
     @product = Product.find(params[:id])
@@ -57,7 +54,7 @@ end
   private
 
     def product_params
-      params.require(:product).permit(:stock_count, :name, :price, :image, :category)
+      params.require(:product).permit(:name, :price, :image, :category_id)
     end
 
 end
