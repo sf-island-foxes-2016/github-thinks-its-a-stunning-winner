@@ -1,0 +1,12 @@
+<% @cart.products.each do |product| %>
+  <div class="product-cart-container col-sm-4">
+    <a href="/products/<%=product.id%>"><img class="well" src="<%=product.image%>"></img></a><br>
+    <b><%= link_to product.name, product_path(id: product.id) %></b>
+    <br>
+    <em>$<%=product.quoted_price%>0</em>
+    <em>$<%=product.quantity%>0</em>
+
+    <br><button onclick="deleteFromCart()" class="cartdeletebtn">Delete from Cart</button>
+    <br><button onclick="changeQuantityinCart()" class="cartchangebtn">Change quantity</button>
+  </div>
+<%end%>
