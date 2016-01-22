@@ -71,13 +71,12 @@ ActiveRecord::Schema.define(version: 20160122055228) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.integer  "stock_count"
     t.string   "name"
     t.float    "price"
     t.string   "image"
     t.string   "category"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "shippers", force: :cascade do |t|

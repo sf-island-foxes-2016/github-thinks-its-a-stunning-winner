@@ -2,7 +2,7 @@
 <h2><%=@product.name%></h2>
 <img class="well" src="<%=@product.image%>"></img>
 <ul>
-  <%="Stock: #{@product.stock_count}"%><br>
+  <%="Stock: #{rand(1..10)}"%><br>
   <%= "Price: $#{@product.price}0" %>
   <br><button onclick="addToCart()" class="cartbtn">Add to Cart</button>
 </ul>
