@@ -9,11 +9,12 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def authorize
-    redirect_to '/login' unless current_user && (current_user.username == "EggJon")
+    redirect_to '/login' unless admin?
   end
 
   def admin?
-    current_user && (current_user.title == "admin")
+    current_user && (current_user.title == "admin"  || (current_user.username == "admin"))
   end
   helper_method :admin?
+
 end
