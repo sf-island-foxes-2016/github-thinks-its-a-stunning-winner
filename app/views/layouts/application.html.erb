@@ -44,7 +44,7 @@
 
 
 <div class="nav-dropdown nav navbar-nav navbar-right">
-    <button onclick="showCategoriesMenu()" class="dropbtn" id="shop-by-category-button">Shop By Category</button>
+    <button onclick="showCategoriesMenu()" class="dropbtn" id="shop-by-category-button">Shop By Category<span class="caret"></span></button>
       <div id="shop-by-category-Dropdown" class="category-dropdown dropdown-content">
         <% Category.all.each do |category| %>
         <%= link_to category.name, category_path(id: category.id) %>
