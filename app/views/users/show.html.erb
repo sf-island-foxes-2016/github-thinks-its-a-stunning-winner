@@ -1,14 +1,15 @@
 <% if @user.title == "admin" %>
   <div class="homepage-link-container">
-    <%= link_to "New Product", new_product_path %><br>
+    <span class="nice-links"><%= link_to "New Product", new_product_path %></span><br>
   </div>
 <%end%>
-<% @products.each do |product| %>
-  <div class="product-display-container col-xs-3">
-    <img class="thumbnail" src="<%=product.image%>"></img><br>
-    <b><%= link_to product.name, product_path(id: product.id) %></b>
-    <em><%=product.price%></em>
+<div class="homepage-link-container">
+  <div class="dropdown">
+    <button onclick="showEditMenu()" class="dropbtn">Edit Product</button>
+      <div id="editMenuDropdown" class="dropdown-content">
+        <% @products.each do |product| %>
+        <%= link_to product.name, product_path(id: product.id) %>
+        <% end %>
+      </div>
   </div>
-<% end %>
-
-
+</div>
