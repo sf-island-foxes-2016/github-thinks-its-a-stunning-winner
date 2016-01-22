@@ -11,10 +11,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160119223553) do
+ActiveRecord::Schema.define(version: 20160122025806) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "financial_informations", force: :cascade do |t|
+    t.integer  "card_num"
+    t.integer  "expiry"
+    t.integer  "ccid"
+    t.integer  "address_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer  "mailing_address_id"
+    t.integer  "billing_information_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   create_table "products", force: :cascade do |t|
     t.integer  "stock_count"
@@ -26,12 +48,18 @@ ActiveRecord::Schema.define(version: 20160119223553) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "shopping_carts", force: :cascade do |t|
+    t.integer  "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
-    t.string   "username",      null: false
-    t.string   "title",         null: false
-    t.string   "password_hash", null: false
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.string   "username",        null: false
+    t.string   "title",           null: false
+    t.string   "password_digest", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
 end
