@@ -32,6 +32,7 @@ class UsersController < ApplicationController
     end
     @user = User.find(params[:id])
     @products = Product.all
+    @categories = Category.all
     render 'show'
   end
 
