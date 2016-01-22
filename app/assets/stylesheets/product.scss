@@ -3,9 +3,15 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .product-show-container {
-  height: 100%
+  margin: auto;
 }
 
+.product-detail-container {
+  max-width: 30%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2em;
+}
 .cartbtn {
   border-radius: 50%;
   align: center;

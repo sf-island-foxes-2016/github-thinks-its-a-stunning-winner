@@ -2,17 +2,53 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.homepage-link-container {
-  font-size: 2em;
-  text-decoration: none;
-  text-align: center;
-  border: 2px solid orange;
-  padding: 2em 0 2em 0;
-  border-radius: 50%;
-  max-width: 50%;
-  max-height: 50%;
-  margin: 0 auto;
+/* GLOBAL STYLES
+-------------------------------------------------- */
+/* Padding below the footer and lighter body text */
+
+body {
+  padding-bottom: 40px;
+  color: #5a5a5a;
 }
-  .nice-links {
-  text-align: center;
+
+/* MARKETING CONTENT
+-------------------------------------------------- */
+
+/* Center align the text within the three columns below the carousel */
+.marketing .col-lg-4 {
+  margin-bottom: 20px;
   }
+.marketing h2 {
+  font-weight: normal;
+}
+.marketing .col-lg-4 p {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.img-circle {
+  border: 1px solid orange;
+    text-align: center;
+  position: relative;
+}
+
+.dropbtn {
+  position: absolute;
+  top: 1em;
+  right: 4.2em;
+}
+
+.new-btn{
+  border-radius: 50%;
+   position: absolute;
+   left: 4.2em;
+   top: 6em;
+   text-decoration: none
+}
+
+.edit-btn {
+  border-radius: 50%;
+  position: absolute;
+  left: 3.8em;
+  bottom: 6em;
+}

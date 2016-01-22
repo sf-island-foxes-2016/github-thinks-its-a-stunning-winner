@@ -18,4 +18,19 @@
 /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
 
+function showCategoriesMenu(){
+  document.getElementById("shop-by-category-Dropdown").classList.toggle("show");
+}
+window.onclick = function(event) {
+  if (!event.target.matches('#shop-by-category-button')) {
 
+    var dropdowns = document.getElementsByClassName("category-dropdown");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
