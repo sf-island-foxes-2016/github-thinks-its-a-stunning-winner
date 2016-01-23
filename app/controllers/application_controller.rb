@@ -18,8 +18,9 @@ class ApplicationController < ActionController::Base
   helper_method :admin?
 
   def login_check
-    redirect_to '/login' unless current_user?
+    redirect_to '/login' unless current_user
   end
+  helper_method :current_user
 
   def all_categories
     Category.all

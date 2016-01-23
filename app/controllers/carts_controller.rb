@@ -10,11 +10,12 @@ class CartsController < ApplicationController
   def create
     @product = Product.find(params[:id])
     @product.add_to_cart
+      format.html { redirect_to root_path, notice: "#{@product.name} added to cart." }
     redirect_to root_path
   end
 
   def show
-    @cart = Cart.current
+    @cart = Cart.current(params[:id])
   end
 
   def edit

@@ -34,3 +34,23 @@ window.onclick = function(event) {
     }
   }
 }
+
+$(document).ready(function(){
+  $(".cartbtn").on('click', function(){
+    var product_id = $(this).attr('id');
+    var user_id = $(this).closest('.product-detail-container').attr('id')
+    addToCart(user_id, product_id);
+  })
+
+})
+
+
+
+var addToCart = function(user_id, product_id) {
+  //
+  console.log(user_id)
+  console.log(product_id)
+  var cartId = user_id
+  //post to cart#create(product id, quantity if !=1)
+  $.post("/carts/" + cartId, product_id)
+}
