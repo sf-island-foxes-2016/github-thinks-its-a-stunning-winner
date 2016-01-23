@@ -48,12 +48,12 @@ $(document).ready(function(){
 function addToCart(user_id, product_id){
   var cartId = user_id;
   //post to cart#create(product id, quantity if !=1)
-  // $.ajax({
+  $.ajax({
   //   type: "PUT",
   //   url: "/carts/" + cartId,
   //  data: {product_id},
   //  })
   // .done(function(response){
   //   $('#cartstuffiguess').html(response)
-  // })
+  })
 }
