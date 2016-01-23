@@ -8,10 +8,10 @@ class CartsController < ApplicationController
   end
 
   def create
-    @product = Product.find(params[:id])
-    @product.add_to_cart
-      format.html { redirect_to root_path, notice: "#{@product.name} added to cart." }
-    redirect_to root_path
+    puts "Create is running, params are #{params}"
+    @product = Product.find(params[:product_id])
+    @product.add_to_cart(params[:id])
+    redirect_to cart_path
   end
 
   def show
@@ -22,6 +22,11 @@ class CartsController < ApplicationController
   end
 
   def update
+    puts "Update is running"
+   @product = Product.find(params[:product_id])
+    @product.add_to_cart(params[:id])
+    @cart = Cart.find(params[:id])
+    render "show"
   end
 
   def destroy

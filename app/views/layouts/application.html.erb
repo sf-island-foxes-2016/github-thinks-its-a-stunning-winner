@@ -52,7 +52,7 @@
       </div>
   </div>
 
-
+<a href="/carts/<%=session[:user_id]%>" id="cart-glyph-button" class="btn btn-default"><span class="glyphicon glyphicon-shopping-cart"></span>Cart <%=Cart.find(session[:user_id]).products.count%></a>
 
 </nav>
 <div class="container"><div class="menu-icon"><span></span></div></div>
