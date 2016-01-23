@@ -26,7 +26,11 @@ class CartsController < ApplicationController
    @product = Product.find(params[:product_id])
     @product.add_to_cart(params[:id])
     @cart = Cart.find(params[:id])
-    render "show"
+    if request.xhr?
+      render :text => @cart.products.count
+    else
+      flash[:success] = "You did a thing"
+    end
   end
 
   def destroy

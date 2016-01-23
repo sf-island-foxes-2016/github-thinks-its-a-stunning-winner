@@ -49,8 +49,7 @@ $(document).ready(function(){
 
 var addToCart = function(user_id, product_id) {
   //
-  console.log(user_id)
-  console.log(product_id)
+
   var cartId = user_id
   //post to cart#create(product id, quantity if !=1)
   $.ajax({
@@ -58,8 +57,7 @@ var addToCart = function(user_id, product_id) {
     url: "/carts/" + cartId,
    data: {product_id},
    })
-  .done(function(){
-    console.log(this)
-    $('#cart-glyph-button').html()
+  .done(function(response){
+    $('#cartstuffiguess').html(response)
   })
 }
