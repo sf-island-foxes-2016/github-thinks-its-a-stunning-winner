@@ -47,11 +47,11 @@ $(document).ready(function(){
 
   var cartId = user_id
   //post to cart#create(product id, quantity if !=1)
-  $.ajax({
-    type: "PUT",
-    url: "/carts/" + cartId,
-   data: {product_id},
-   })
+  // $.ajax({
+  //   type: "PUT",
+  //   url: "/carts/" + cartId,
+  //  data: {product_id},
+  //  })
   // .done(function(response){
   //   $('#cartstuffiguess').html(response)
   // })
