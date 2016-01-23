@@ -5,6 +5,7 @@ class Product < ActiveRecord::Base
   has_many :cart_products
   has_many :carts, through: :cart_products
   has_one :inventory
+  belongs_to :category
 
   def add_to_cart(units = 1)
     # if @stock >= units
