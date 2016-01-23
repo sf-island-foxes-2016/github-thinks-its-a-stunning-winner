@@ -15,7 +15,7 @@ class CartsController < ApplicationController
   end
 
   def show
-    @cart = Cart.find_by(user_id: params[:id])
+    @cart = Cart.current(params[:id])
   end
 
   def edit
