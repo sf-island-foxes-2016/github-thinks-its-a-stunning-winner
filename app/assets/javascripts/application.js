@@ -35,15 +35,15 @@ window.onclick = function(event) {
   }
 }
 
-// $(document).ready(function(){
-//   $(".cartbtn").on('click', function(e){
-//     e.preventDefault();
-//     var product_id = $(this).attr('id');
-//     var user_id = $(this).closest('.product-detail-container').attr('id')
-//     addToCart(user_id, product_id);
-//   })
+$(document).ready(function(){
+  $(".cartbtn").on('click', function(e){
+    e.preventDefault();
+    var product_id = $(this).attr('id');
+    var user_id = $(this).closest('.product-detail-container').attr('id')
+    addToCart(user_id, product_id);
+  })
 
-// })
+})
 
 //   var cartId = user_id
 //   //post to cart#create(product id, quantity if !=1)
