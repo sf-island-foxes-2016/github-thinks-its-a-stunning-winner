@@ -4,23 +4,19 @@ RSpec.describe Product do
   # category = Category.find_or_create_by(name: 'Stationery')
   context 'new Product' do
     it 'is valid with a stock count, name, price, image, and category' do
-      product = Product.new(stock_count: 3, name: "Notebook", price: 10, image: "/products/notebook.jpg", category: 'category')
+      product = Product.new(name: "Notebook", price: 10, image: "/products/notebook.jpg", category_id: 1 )
       expect(product.valid?).to be true
     end
-    it 'is invalid without a stock count' do
-      product = Product.new( name: "Notebook", price: 10, image: "/products/notebook.jpg", category: 'category')
-      expect(product.valid?).to be false
-    end
     it 'is invalid without a name' do
-      product = Product.new(stock_count: 3, price: 10, image: "/products/notebook.jpg", category: 'category')
+      product = Product.new(price: 10, image: "/products/notebook.jpg", category_id: 1 )
       expect(product.valid?).to be false
     end
     it 'is invalid without a price' do
-      product = Product.new(stock_count: 3, name: "Notebook", image: "/products/notebook.jpg", category: 'category')
+      product = Product.new(name: "Notebook", image: "/products/notebook.jpg", category_id: 1 )
       expect(product.valid?).to be false
     end
     it 'is invalid without a category' do
-      product = Product.new(stock_count: 3, name: "Notebook", price: 10, image: "/products/notebook.jpg")
+      product = Product.new(name: "Notebook", price: 10, image: "/products/notebook.jpg")
       expect(product.valid?).to be false
     end
   end
@@ -31,7 +27,7 @@ describe Product do
   it { should validate_presence_of(:name) }
   it { should validate_uniqueness_of(:name) }
   it { should validate_presence_of(:price) }
-  it { should validate_presence_of(:category) }
+  it { should validate_presence_of(:category_id) }
   # Associations
   it { should belong_to(:category) }
   it { should have_many(:carts).through(:cart_products) }

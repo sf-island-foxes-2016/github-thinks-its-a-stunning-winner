@@ -24,6 +24,6 @@ describe User do
     # Associations
     it { should have_many(:addresses) }
     it { should have_many(:financial_informations) }
-    it { should belong_to(:more_complex_tests) }
+    # it { should belong_to(:more_complex_tests) }
   end
 end
