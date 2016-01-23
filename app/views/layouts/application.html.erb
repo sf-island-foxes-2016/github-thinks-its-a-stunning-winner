@@ -52,7 +52,8 @@
       </div>
   </div>
 
-<% if session[:user_id] %>
+<% if session[:user_id] && Cart.count > 0 %>
+<!-- THIS IS NOT FINDING THE RIGHT CART.  CART ID 1 is not necessarily the cart of user_id 1.  BUT THE CRASH WHEN THERE IS NO CART IS FIXED -->
 <a href="/carts/<%=session[:user_id]%>" id="cart-glyph-button" class="btn btn-default"><span class="glyphicon glyphicon-shopping-cart"></span>Cart <span id="cartstuffiguess"><%=Cart.find(session[:user_id]).products.count%></span></a>
 <% end %>
 
