@@ -52,8 +52,8 @@ function addToCart(user_id, product_id){
     type: "PUT",
     url: "/carts/" + cartId,
    data: {product_id},
-   })
+  //  })
   // .done(function(response){
   //   $('#cartstuffiguess').html(response)
-  }
+  })
 }
