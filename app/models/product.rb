@@ -1,10 +1,10 @@
 class Product < ActiveRecord::Base
-  validates :name, :price, :category_id, presence: true
+  validates :name, :price, :category_id, :image,  presence: true
   validates :name, uniqueness: true
 
   has_many :cart_products
   has_many :carts, through: :cart_products
-  has_one :inventory
+  has_one :warehouse
   belongs_to :category
 
   def add_to_cart(user_id)
@@ -14,11 +14,11 @@ class Product < ActiveRecord::Base
   end
 
   def replenish_stock(units = 1)
-    @stock += units
+    # @stock += units
   end
 
   def reprice(new_price)
-    @price = new_price
+    # @price = new_price
   end
 
   # def current_cart(user_id)

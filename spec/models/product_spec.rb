@@ -26,12 +26,14 @@ describe Product do
   # Basic validations
   it { should validate_presence_of(:name) }
   it { should validate_uniqueness_of(:name) }
+  it { should validate_presence_of(:image) }
   it { should validate_presence_of(:price) }
   it { should validate_presence_of(:category_id) }
   # Associations
   it { should belong_to(:category) }
   it { should have_many(:carts).through(:cart_products) }
   it { should have_many(:cart_products) }
+  it { should have_one(:warehouse) }
 end
 
 # describe "responds to its methods" do

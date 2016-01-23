@@ -19,11 +19,16 @@ describe User do
   context 'testing validations and associations' do
       # Basic validations
     it { should validate_presence_of(:username) }
+    it { should validate_presence_of(:password) }
     it { should validate_presence_of(:title) }
     # it { should validate_uniqueness_of(:username) }
+    it { should have_secure_password }
     # Associations
     it { should have_many(:addresses) }
     it { should have_many(:financial_informations) }
-    # it { should belong_to(:more_complex_tests) }
+    it { should have_many(:ordered_carts).class_name('Cart') } #.conditions(order_id: true) }
+    it { should have_many(:active_carts).class_name('Cart') } #.conditions(order_id: false) }
+    it { should have_many(:products_ordered).through(:ordered_carts)} #.conditions(order_id: true) }
+    it { should have_many(:products_in_cart).through(:active_carts)} #.conditions(order_id: false)}
   end
 end

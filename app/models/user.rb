@@ -1,9 +1,8 @@
 class User < ActiveRecord::Base
   has_secure_password
 
+  validates :title, :username, :password, presence: true
   validates :username, uniqueness: true
-  validates :title, presence: true
-  validates :username, :password, presence: true
 
   has_many :active_carts, -> { where "order_id = false" }, class_name: "Cart"
   has_many :ordered_carts, -> { where "order_id = true" }, class_name: "Cart"
