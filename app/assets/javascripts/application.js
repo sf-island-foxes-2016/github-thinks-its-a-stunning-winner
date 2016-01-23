@@ -45,11 +45,6 @@ $(document).ready(function(){
 
 })
 
-
-
-var addToCart = function(user_id, product_id) {
-  //
-
   var cartId = user_id
   //post to cart#create(product id, quantity if !=1)
   $.ajax({
