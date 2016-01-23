@@ -52,7 +52,7 @@ $(document).ready(function(){
     url: "/carts/" + cartId,
    data: {product_id},
    })
-  .done(function(response){
-    $('#cartstuffiguess').html(response)
-  })
+  // .done(function(response){
+  //   $('#cartstuffiguess').html(response)
+  // })
 }
