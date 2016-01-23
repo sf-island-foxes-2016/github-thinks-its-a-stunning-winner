@@ -20,8 +20,8 @@ class Cart < ActiveRecord::Base
   def sub_total
   end
 
-  def self.current
-    Cart.find_by(user_id: session[:user_id], order_id: nil)
-  end
+  # def self.current
+  #   Cart.find_by(user_id: params[:id], order_id: nil)
+  # end
 
 end

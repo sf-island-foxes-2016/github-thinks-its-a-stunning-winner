@@ -1,3 +1,4 @@
+<%if @cart.products %>
 <% @cart.products.each do |product| %>
   <div class="product-cart-container col-sm-4">
     <a href="/products/<%=product.id%>"><img class="well" src="<%=product.image%>"></img></a><br>
@@ -9,4 +10,7 @@
     <br><button onclick="deleteFromCart()" class="cartdeletebtn">Delete from Cart</button>
     <br><button onclick="changeQuantityinCart()" class="cartchangebtn">Change quantity</button>
   </div>
+<%end%>
+<%else%>
+<h2>Your cart is empty! <a href="/">Shop here.</a><h2>
 <%end%>
