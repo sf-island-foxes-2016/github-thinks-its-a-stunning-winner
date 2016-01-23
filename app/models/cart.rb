@@ -4,8 +4,12 @@ class Cart < ActiveRecord::Base
   has_many :products, through: :cart_products
 
   def purchase
-    # create new order_id
-    # assign each item inventory status pending shipment
+    order = Order.create(status: pending, cart_id: @id)
+    @order_id = order.id
+    @cart_products.each do |cp|
+      Product.find(cp.product_id).stock -= cp.quantity
+      # assign each item inventory status "pending" (present but committed)
+    end
   end
 
   def tax_amount
@@ -21,7 +25,7 @@ class Cart < ActiveRecord::Base
   end
 
   def self.current
-    Cart.find_by(user_id: session[:user_id], order_id: nil)
+    Cart.find_by(user_id: session[:user_id], order_id: nil) || Cart.new
   end
 
 end
