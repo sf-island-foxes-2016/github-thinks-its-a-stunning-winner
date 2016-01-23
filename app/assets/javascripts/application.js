@@ -46,7 +46,7 @@ $(document).ready(function(){
 })
 
 function addToCart(user_id, product_id){
-  var cartId = user_id
+  var cartId = user_id;
   //post to cart#create(product id, quantity if !=1)
   $.ajax({
     type: "PUT",
