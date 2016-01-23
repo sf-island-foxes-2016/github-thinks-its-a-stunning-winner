@@ -36,7 +36,8 @@ window.onclick = function(event) {
 }
 
 $(document).ready(function(){
-  $(".cartbtn").on('click', function(){
+  $(".cartbtn").on('click', function(e){
+    e.preventDefault();
     var product_id = $(this).attr('id');
     var user_id = $(this).closest('.product-detail-container').attr('id')
     addToCart(user_id, product_id);
@@ -48,9 +49,15 @@ $(document).ready(function(){
 
 var addToCart = function(user_id, product_id) {
   //
-  console.log(user_id)
-  console.log(product_id)
+
   var cartId = user_id
   //post to cart#create(product id, quantity if !=1)
-  $.post("/carts/" + cartId, product_id)
+  $.ajax({
+    type: "PUT",
+    url: "/carts/" + cartId,
+   data: {product_id},
+   })
+  .done(function(response){
+    $('#cartstuffiguess').html(response)
+  })
 }
