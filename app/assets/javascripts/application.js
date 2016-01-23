@@ -51,7 +51,7 @@ function addToCart(user_id, product_id){
   $.ajax({
     type: "PUT",
     url: "/carts/" + cartId,
-   data: { product_id },
+   data: product_id,
   //  })
   // .done(function(response){
   //   $('#cartstuffiguess').html(response)
