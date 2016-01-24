@@ -20,10 +20,7 @@ class ApplicationController < ActionController::Base
   def login_check
     redirect_to '/login' unless current_user
   end
-  helper_method :current_user
+  helper_method :login_check
 
-  def all_categories
-    Category.all
-  end
 
 end
