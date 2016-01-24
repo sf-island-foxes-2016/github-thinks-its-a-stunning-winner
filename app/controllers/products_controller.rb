@@ -16,7 +16,7 @@ class ProductsController < ApplicationController
 
   def create
     if create_product
-      redirect_to users_path(id: session[:user_id])
+      redirect_to users_path(id: current_user_id)
     else
       all_categories
       render 'new'
@@ -44,7 +44,7 @@ class ProductsController < ApplicationController
 
   def destroy
     if delete_product
-      redirect_to users_path(id: session[:user_id])
+      redirect_to users_path(id: current_user_id)
     else
       render 'show'
     end

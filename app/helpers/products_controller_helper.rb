@@ -1,5 +1,7 @@
 module ProductsControllerHelper
 
+  include AdminHelper
+
   def all_categories
     @categories = Category.all
   end
@@ -23,10 +25,6 @@ module ProductsControllerHelper
 
   def update_product
     @product.update(product_params)
-  end
-
-  def current_user
-    @user = User.find(session[:user_id]) if session[:user_id]
   end
 
   def delete_product
