@@ -3,7 +3,7 @@ require 'rails_helper'
 describe User do
   context 'new User' do
     it 'is valid with a username, title, and password' do
-      user = User.new(username:'Bob', title: 'user', password:'password')
+      user = User.new(username:'Bob', admin: false, password:'password')
       user.valid?
     end
     it 'is invalid without a username' do
@@ -11,8 +11,8 @@ describe User do
       expect(user.valid?).to be false
     end
     it 'is invalid without a unique username' do
-      user = User.create(username:'Bob', title: 'user', password:'password')
-      user2 = User.create(username:'Bob', title: 'admin', password:'password')
+      user = User.create(username:'Bob', admin: false, password:'password')
+      user2 = User.create(username:'Bob', admin: true, password:'password')
       expect(user2.valid?).to be false
     end
   end
