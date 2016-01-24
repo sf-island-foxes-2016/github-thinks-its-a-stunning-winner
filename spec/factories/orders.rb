@@ -2,7 +2,8 @@
 
 FactoryGirl.define do
   factory :order do
-    mailing_address_id 1
-    billing_information_id 1
+    mailing_address
+    billing_information
+    cart
   end
 end

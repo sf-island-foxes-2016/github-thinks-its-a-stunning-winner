@@ -2,6 +2,7 @@
 
 FactoryGirl.define do
   factory :tax do
-    state "MyString"
+    state "VA"
+    rate 0.05
   end
 end
