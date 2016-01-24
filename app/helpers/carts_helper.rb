@@ -1,7 +1,7 @@
 module CartsHelper
 
   def current_cart
-    @cart = Cart.find_by_user_id(current_user.id) ||= create_cart(current_user)
+    @cart = Cart.find_by_user_id(current_user.id) || create_cart(current_user)
   end
 
   def all_carts

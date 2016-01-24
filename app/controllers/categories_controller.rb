@@ -14,7 +14,7 @@ class CategoriesController < ApplicationController
 
   def create
     if create_category
-      redirect_to index
+      redirect_to action: "index"
     else
       render 'new'
     end
@@ -39,6 +39,6 @@ class CategoriesController < ApplicationController
 
   def destroy
     delete_category
-    redirect_to index
+    redirect_to action: "index"
   end
 end

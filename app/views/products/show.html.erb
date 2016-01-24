@@ -1,10 +1,10 @@
 <div class="product-show-container">
 <h2><%=@product.name%></h2>
-<div class="product-detail-container" id="<%=@user.id%>">
+<div class="product-detail-container">
 <img class="well" src="<%=@product.image%>"></img>
 <ul>
-  <%="Stock: #{rand(1..10)}"%><br>
-  <%= "Price: $#{@product.price}0" %>
+  <%="Stock: #{@product.stock}"%><br>
+  <%= "Price: $#{@product.price}" %>
   <br><button class="cartbtn" id="<%=@product.id%>">Add to Cart</button>
 </ul>
 </div>

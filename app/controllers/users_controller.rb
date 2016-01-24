@@ -1,9 +1,11 @@
 class UsersController < ApplicationController
 
-  before_action :authorize, except: [:new, :create, :edit]
+  include UsersHelper
+
+  before_action :authorize, except: [:new, :create, :edit, :update, :destroy]
 
   def index
-    redirect_to root_path
+    all_users
   end
 
   def create
@@ -18,11 +20,13 @@ class UsersController < ApplicationController
   end
 
   def new
-    @user = User.new
+    new_user
   end
 
   def edit
-    @user = User.find(session[:user_id])
+    redirect_to login_path unless session[:user_id]
+    redirect_to user_path unless current_user.id == params[:id]
+    find_user
   end
 
   def show

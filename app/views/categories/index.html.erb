@@ -1,0 +1,8 @@
+<h1>Category List</h1>
+<% @categories.each do |category| %>
+    <b><%=category.name%></b>
+    <b><%= link_to "Edit", edit_category_path(category.id) %></b>
+    <b><%=link_to 'Delete', category_path(category.id), method: :delete, data: { confirm: "Delete #{category.name}?"}%></b>
+    <br>
+<%end%>
+    <b><%= link_to "Add Category", new_category_path(:id) %></b>
