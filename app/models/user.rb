@@ -11,5 +11,4 @@ class User < ActiveRecord::Base
   has_many :addresses
   has_many :financial_informations
 
-
 end

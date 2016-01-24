@@ -6,7 +6,7 @@ FactoryGirl.define do
     city "London"
     state "CT"
     zip 12345
-    nickname "home"
+    address_type "home"
     user
   end
 end
