@@ -1,7 +1,7 @@
 require 'faker'
 
-User.create(username:'admin', title: 'admin', password:'password')
-User.create(username:'user', title: 'user', password:'password')
+User.create(first_name: "Jon", last_name: "Mia", username:'admin', admin: true, password:'password')
+User.create(first_name: "Jon", last_name: "Mia", username:'user', admin: false, password:'password')
 10.times do
 Product.create(
     name: Faker::Commerce.product_name,

@@ -11,7 +11,7 @@ class Order < ActiveRecord::Base
 
   def process_payment
     # do_accounting
-    ship
+    # ship
   end
 
   def ship

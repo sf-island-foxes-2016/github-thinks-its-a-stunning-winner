@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :warehouse do
-    product_id 1
-    stock 1
+    product
+    stock 20
   end
 end

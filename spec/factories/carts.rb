@@ -2,5 +2,16 @@
 
 FactoryGirl.define do
   factory :cart do
+    user
+  end
+
+  trait :pending do
+    order_id nil
+  end
+
+  trait :sold do
+    order
   end
 end
+
+
