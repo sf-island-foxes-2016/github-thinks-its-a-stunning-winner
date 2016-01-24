@@ -2,6 +2,7 @@ class Cart < ActiveRecord::Base
   belongs_to :user
   has_many :cart_products
   has_many :products, through: :cart_products
+  has_one :order
 
   def self.current(user_id)
   @cart = Cart.where(order_id: nil).find_by(user_id: user_id) || Cart.create(user_id: user_id)

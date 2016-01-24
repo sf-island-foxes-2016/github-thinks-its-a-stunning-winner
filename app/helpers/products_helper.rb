@@ -1,10 +1,6 @@
-module ProductsControllerHelper
+module ProductsHelper
 
   include AdminHelper
-
-  def all_categories
-    @categories = Category.all
-  end
 
   def all_products
     @products =Product.all
@@ -20,7 +16,7 @@ module ProductsControllerHelper
   end
 
   def find_product
-    @product = Product.find(params[:id])
+    @product = Product.find(product_params[:id])
   end
 
   def update_product

@@ -1,11 +1,12 @@
 class ProductsController < ApplicationController
 
-  include ProductsControllerHelper
+  include ProductsHelper
+  include CategoriesHelper
 
   before_action :authorize, except: [:index, :show]
 
   def index
-    all_categories
+    displayed_categories
     all_products
   end
 
@@ -16,7 +17,7 @@ class ProductsController < ApplicationController
 
   def create
     if create_product
-      redirect_to users_path(id: current_user_id)
+      redirect_to users_path(id: current_user.id)
     else
       all_categories
       render 'new'
@@ -44,7 +45,7 @@ class ProductsController < ApplicationController
 
   def destroy
     if delete_product
-      redirect_to users_path(id: current_user_id)
+      redirect_to users_path(id: current_user.id)
     else
       render 'show'
     end

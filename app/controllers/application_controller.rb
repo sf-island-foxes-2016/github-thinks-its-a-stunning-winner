@@ -17,10 +17,9 @@ class ApplicationController < ActionController::Base
   end
   helper_method :admin?
 
-  def login_check
+  def logged_in?
     redirect_to '/login' unless current_user
   end
-  helper_method :login_check
-
+  helper_method :logged_in?
 
 end

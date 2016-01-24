@@ -1,7 +1,6 @@
 class SessionsController < ApplicationController
 
-  def new
-  end
+  include SessionsHelper
 
   def create
     username = params[:session][:username]
