@@ -11,12 +11,14 @@ class Order < ActiveRecord::Base
 
   def process_payment
     # do_accounting
-    # ship
+    ship
   end
 
   def ship
+    self.cart_products.each do |cart_product|
+      cart_product.product.ship(cart_product.quantity)
+    end
     #package items
-    #change inventory status to shipped for each
     #deliver to shipper
     #pay for shipment
   end
