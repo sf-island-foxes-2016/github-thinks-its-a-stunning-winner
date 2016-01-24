@@ -20,9 +20,10 @@ Rails.application.routes.draw do
   #   resources :products
 
   resources :users
+  resources :categories
   resources :products
   resources :carts
-  resources :categories
+  resources :cart_products
 
   # Example resource route with options:
   #   resources :products do
