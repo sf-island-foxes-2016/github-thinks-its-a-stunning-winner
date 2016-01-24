@@ -1,8 +1,8 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
-  sequence(:name) { |n| "Shipper #{n}" }
+  sequence(:shipper_name) { |n| "Shipper #{n}" }
   factory :shipper do
-    name
+    name shipper_name
   end
 end

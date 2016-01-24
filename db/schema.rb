@@ -50,8 +50,8 @@ ActiveRecord::Schema.define(version: 20160122055228) do
   end
 
   create_table "financial_informations", force: :cascade do |t|
-    t.integer  "card_num"
-    t.integer  "expiry"
+    t.string   "card_num"
+    t.string   "expiry"
     t.integer  "ccid"
     t.integer  "address_id"
     t.integer  "user_id"
@@ -99,8 +99,10 @@ ActiveRecord::Schema.define(version: 20160122055228) do
   end
 
   create_table "users", force: :cascade do |t|
+    t.string   "first_name",      null: false
+    t.string   "last_name",       null: false
     t.string   "username",        null: false
-    t.string   "title",           null: false
+    t.boolean  "admin"
     t.string   "password_digest", null: false
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
