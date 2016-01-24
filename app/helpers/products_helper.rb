@@ -16,7 +16,7 @@ module ProductsHelper
   end
 
   def find_product
-    @product = Product.find(product_params[:id])
+    @product = Product.find(params[:id])
   end
 
   def update_product
