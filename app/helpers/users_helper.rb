@@ -6,7 +6,7 @@ module UsersHelper
     @users =User.all
   end
 
-  def new_product
+  def new_user
     @user = User.new
   end
 

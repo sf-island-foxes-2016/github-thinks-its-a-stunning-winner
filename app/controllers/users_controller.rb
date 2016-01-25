@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
   include UsersHelper
 
+  before_action :logged_in?, except: [:new, :create]
   before_action :authorize, except: [:new, :create, :edit, :update, :destroy]
 
   def index
@@ -24,22 +25,19 @@ class UsersController < ApplicationController
   end
 
   def edit
-    redirect_to login_path unless session[:user_id]
-    redirect_to user_path unless current_user.id == params[:id]
+    puts "admin status is #{admin?}"
+    puts "login status is #{logged_in?}"
+    redirect_to action: "index" if admin?
     find_user
   end
 
   def show
-    unless session[:user_id]
-      redirect_to login_path
-    end
-    @user = User.find(params[:id])
-    @products = Product.all
-    @categories = Category.all
-    render 'show'
+    current_user
   end
 
   def update
+
+    redirect_to user_path and return unless current_user.id == params[:id]
     user = User.find(session[:user_id])
     if user.update(user_params)
       redirect_to users_path
@@ -49,9 +47,10 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    user = User.find(session[:user_id])
-    user.delete
-    redirect_to root_path
+    find_user
+    @user.delete if @user == current_user  || admin?
+    redirect_to root_path unless admin?
+    redirect_to action: "index"
   end
 
   private

@@ -19,6 +19,7 @@ class ApplicationController < ActionController::Base
 
   def logged_in?
     redirect_to '/login' unless current_user
+    true
   end
   helper_method :logged_in?
 

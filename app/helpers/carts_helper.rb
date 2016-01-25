@@ -18,7 +18,7 @@ module CartsHelper
   end
 
   def find_cart
-    @cart = Cart.find(cart_params[:id])
+    @cart = Cart.find(params[:id])
   end
 
   def update_cart
@@ -33,7 +33,8 @@ module CartsHelper
   private
 
     def cart_params
-      params.require(:cart).permit(:user_id, :order_id)
+      return params.permit(:id, :user_id, :order_id) unless params[:cart]
+      params.require(:cart).permit(:id, :user_id, :order_id)
     end
 
 end

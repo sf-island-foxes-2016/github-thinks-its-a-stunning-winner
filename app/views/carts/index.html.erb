@@ -1,0 +1,6 @@
+<% @carts.each do |cart| %>
+    <b><%= link_to cart, cart_path(id: cart.id) %></b>
+    <b><%= link_to "Edit", edit_cart_path(cart.id) %></b>
+    <b><%=link_to 'Delete', cart_path(cart.id), method: :delete, data: { confirm: "Delete #{cart}?"}%></b>
+    <br>    <br>
+<%end%>

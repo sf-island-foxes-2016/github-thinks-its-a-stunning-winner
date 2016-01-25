@@ -22,6 +22,14 @@
     <%= f.label :last_name %>
     <%= f.text_field :last_name %>
   </p>
+
+  <% if @user.admin %>
+  <p>
+    <%= f.label :admin %>
+    <%= f.check_box :admin %>
+  </p>
+
+  <% end %>
   <p>
     <%= f.label :username %>
     <%= f.text_field :username %>

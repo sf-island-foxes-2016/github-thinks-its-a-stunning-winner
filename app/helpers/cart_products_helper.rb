@@ -3,35 +3,36 @@ module CartProductsHelper
 include CartsHelper
 
   def all_cart_products
-    @cart_products = @cart.CartProducts.all
+    @cart_products = CartProduct.all
   end
 
-  def new_cart
-    @cart_product = CartProducts.new
+  def new_cart_product
+    @cart_product = CartProduct.new
   end
 
-  def create_cart
-    @cart_product = CartProducts.new(cart_product_params)
+  def create_cart_product
+    @cart_product = CartProduct.new(cart_product_params)
     @cart_product.save
   end
 
-  def find_cart
-    @cart_product = CartProducts.find(cart_product_params[:id])
+  def find_cart_product
+    @cart_product = CartProduct.find(params[:id])
   end
 
-  def update_cart
+  def update_cart_product
     @cart_product.update(cart_product_params)
   end
 
-  def delete_cart
-    find_cart
+  def delete_cart_product
+    find_cart_product
     @cart_product.destroy
   end
 
   private
 
     def cart_product_params
-      params.require(:cart_product).permit(:cart_id, :user_id, :quoted_price, :quantity)
+      return params.permit(:id, :cart_id, :user_id, :quoted_price, :quantity) unless params[:cart_product]
+      params.require(:cart_product).permit(:id, :cart_id, :user_id, :quoted_price, :quantity)
     end
 
 end
