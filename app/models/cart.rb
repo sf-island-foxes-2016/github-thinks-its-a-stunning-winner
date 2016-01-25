@@ -21,19 +21,23 @@ class Cart < ActiveRecord::Base
   end
 
   def sub_total
-    self.cart_products.sum(quoted_price)
+    sum = 0
+    self.cart_products.each do |item|
+      sum += (item.quoted_price * item.quantity)
+    end
+    sum
   end
 
   def tax_amount
-    sub_total * try(self.user.addresses.find_by_type(:primary).state.rate) || 0.075
+    sub_total * (try(self.user.addresses.find_by_address_type("home").state) || 0.075)
   end
 
   def shipping_cost
-    self.cart_products.count * try(self.user.get_a_shipping_cost) || 1.50
+    self.cart_products.count * 1.50 #(try(self.user.get_a_shipping_cost) ||
   end
 
   def handling_charge
-    try(to_get_a_handling_charge) || 2.00
+    2.00 || try(to_get_a_handling_charge)
   end
 
   def total

@@ -3,9 +3,9 @@
 <div class="product-detail-container">
 <img class="well" src="<%=@product.image%>"></img>
 <ul>
-  <%="Stock: #{@product.stock}"%><br>
-  <%= "Price: $#{@product.price}" %>
-  <br><button class="cartbtn" id="<%=@product.id%>">Add to Cart</button>
+  <li><%="Stock: #{@product.stock}"%></li>
+  <li><%= "Price: $#{@product.price}" %></li>
+  <li><%= link_to 'Add to cart', new_cart_product_path(product_id: @product.id) %></li>
 </ul>
 </div>
 <div class="nav navbar">

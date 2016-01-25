@@ -1,31 +1,12 @@
-<%= form_for @cart do |f| %>
+<% @cart.cart_products.each do |cart_product| %>
+    <a href="/products/<%=cart_product.product.id%>"><img src="<%=cart_product.product.image%>"></img></a><br>
+    <b><%= link_to cart_product.product.name, product_path(id: cart_product.product.id) %></b>
+    <br>
+    <em>Price: $<%=cart_product.quoted_price%></em>
+    <br>
+    <em>Quantity: <%=cart_product.quantity%></em>
+    <br>
+    <b><%= link_to "Edit item", edit_cart_product_path(cart_product.id) %></b>
+    <b><%=link_to 'Delete item', cart_product_path(cart_product.id), method: :delete, data: { confirm: "Delete #{cart_product.product.name}?"}%></b>
+<%end%>
 
-  <% if @cart.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@cart.errors.count, "error") %> prohibited
-        this cart from being saved:
-      </h2>
-      <ul>
-        <% @cart.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <p>
-    <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
-  </p>
-
-  <p>
-    <%= f.label :order_id %><br>
-    <%= f.number_field :order_id %>
-  </p>
-
-  <p>
-    <%= f.submit %>
-  </p>
-
-<% end %>
