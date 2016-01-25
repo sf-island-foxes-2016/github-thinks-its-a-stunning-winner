@@ -1,23 +1,23 @@
 class CartProductsController < ApplicationController
   before_action :logged_in?
-  before_action :authorize, only: [:index]
+  # before_action :authorize, only: [:index]
 
   include CartProductsHelper
 
   def index
-    all_cart_products
+    redirect_to root_path
   end
 
   def new
-    new_cart_product
-  end
-
-  def create
+    puts params
     if create_cart_product
-      redirect_to action: "index"
+      redirect_to root_path
     else
       render 'new'
     end
+  end
+
+  def create
   end
 
   def show

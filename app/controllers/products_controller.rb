@@ -6,6 +6,11 @@ class ProductsController < ApplicationController
   before_action :authorize, except: [:index, :show]
 
   def index
+
+
+  end
+
+  def index
     displayed_categories
     all_products
   end

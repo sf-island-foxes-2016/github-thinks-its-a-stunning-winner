@@ -31,6 +31,7 @@ module ProductsHelper
   private
 
     def product_params
+      params.permit(:name, :price, :image, :category_id) unless params[:product]
       params.require(:product).permit(:name, :price, :image, :category_id)
     end
 end

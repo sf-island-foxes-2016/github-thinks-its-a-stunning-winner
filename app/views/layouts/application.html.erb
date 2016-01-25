@@ -3,20 +3,15 @@
 <head>
   <title>Stunning Winner</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-7s5uDGW3AHqw6xtJmNNtr+OBRJUlgkNJEo78P4b0yRw= sha512-nNo+yCHEyn0smMxSswnf/OnX6/KwJuZTlNZBjauKhTK0c+zT+q5JOCx0UFhXQ6rJR9jg6Es8gPuD2uZcYDLqSw==" crossorigin="anonymous">
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 
-<header class="fixed-top">
-<nav class="navbar navbar-inverse navbar">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="active navbar-brand" href="/">Shop</a>
-  </div>
-    <ul class="nav navbar-nav">
+<header>
+    <ul>
       <li><a href="/">Home</a></li>
      <% if session[:user_id]%>
       <%@user = User.find(session[:user_id])%>
@@ -43,30 +38,11 @@
   </div>
 
 
-<div class="nav-dropdown nav navbar-nav navbar-right">
-    <button onclick="showCategoriesMenu()" class="dropbtn" id="shop-by-category-button">Shop By Category<span class="caret"></span></button>
-      <div id="shop-by-category-Dropdown" class="category-dropdown dropdown-content">
-        <% Category.all.each do |category| %>
-        <%= link_to category.name, category_path(id: category.id) %>
-        <% end %>
-      </div>
-  </div>
-
-<% if session[:user_id] && current_user.active_carts.count > 0 %>
-<!-- THIS IS NOT FINDING THE RIGHT CART.  CART ID 1 is not necessarily the cart of user_id 1.  BUT THE CRASH WHEN THERE IS NO CART IS FIXED -->
-<a href="/carts/<%=session[:user_id]%>" id="cart-glyph-button" class="btn btn-default"><span class="glyphicon glyphicon-shopping-cart"></span>Cart <span id="cartstuffiguess"><%=Cart.find(session[:user_id]).products.count%></span></a>
-<% end %>
-
-</nav>
-<div class="container"><div class="menu-icon"><span></span></div></div>
 <%if session[:user_id]%>
 <%@user=User.find(session[:user_id])%>
-<div class="jumbotron"><h2>Welcome, <%=@user.username%>!</h2><p>This is a shop full of things</p></div>
+<h2>Welcome, <%=@user.first_name%>!</h2><p>This is a shop full of things</p></div>
 <%end%>
 </header>
-
-
-
 
 <%= yield %>
 

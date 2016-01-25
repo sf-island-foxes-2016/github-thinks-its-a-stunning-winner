@@ -6,7 +6,7 @@ module CategoriesHelper
 
   def displayed_categories
     @categories = Category.all
-    @categories = Category.find(product_params[:category_id]) if params[:product] && product_params[:category_id]
+    @categories = Category.find(params[:category_id]) if params[:category_id]
   end
 
   def new_category

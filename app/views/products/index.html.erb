@@ -1,9 +1,16 @@
+
+<%= form_for :categories, :url => {:action => :index}, :method => "get", :html => { :class => "form" } do |f| %>
+<%= collection_select(:category_filter, :id, Category.all.sort, :id, :name) %>
+<% end %>
+
+
 <% @products.each do |product| %>
-  <div class="product-detail-container col-sm-4" id="<%=session[:user_id]%>">
-    <a href="/products/<%=product.id%>"><img class="well" src="<%=product.image%>"></img></a><br>
+    <a href="/products/<%=product.id%>"><img src="<%=product.image%>"></img></a><br>
     <b><%= link_to product.name, product_path(id: product.id) %></b>
     <br>
     <em>$<%=product.price%>0</em>
-    <br><button class="cartbtn" id="<%=product.id%>">Add to Cart</button>
-  </div>
+    <%= link_to 'Add to cart', new_cart_product_path(product_id: product.id) %>
+    <%= link_to 'View cart', edit_cart_path(current_cart.id) %>
 <%end%>
+
+
