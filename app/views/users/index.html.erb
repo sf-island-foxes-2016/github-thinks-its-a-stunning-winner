@@ -1,0 +1,15 @@
+<h1>User List</h1>
+<% @users.each do |user| %>
+    <b><%=user.username%></b>
+    <b><%= link_to "Edit", edit_user_path(user.id) %></b>
+    <b><%=link_to 'Delete', user_path(user.id), method: :delete, data: { confirm: "Delete #{user.username}?"}%></b>
+    <br>
+<%end%>
+    <br>
+    <b><%= link_to "Add new user", new_user_path(:id) %></b>
+    <br>
+    <b><%= link_to "Cart_products", cart_products_path %></b>
+    <br>
+    <b><%= link_to "Carts", carts_path %></b>
+    <br>
+    <b><%= link_to "Categories", categories_path %></b>

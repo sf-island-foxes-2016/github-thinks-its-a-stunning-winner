@@ -1,41 +1,47 @@
 class ProductsController < ApplicationController
 
+  include ProductsHelper
+  include CategoriesHelper
+
   before_action :authorize, except: [:index, :show]
 
   def index
-    @categories = Category.all
-    @products = Product.all
+
+
+  end
+
+  def index
+    displayed_categories
+    all_products
   end
 
   def new
-    @categories = Category.all
-    @product = Product.new
+    all_categories
+    new_product
   end
 
   def create
-    @product = Product.new(product_params)
-    if @product.save
-      redirect_to users_path(id: session[:user_id])
+    if create_product
+      redirect_to users_path(id: current_user.id)
     else
+      all_categories
       render 'new'
     end
   end
 
   def show
-    @product = Product.find(params[:id])
-    if session[:user_id]
-    @user = User.find(session[:user_id])
-    end
+    find_product
+    current_user
   end
 
   def edit
-    @categories = Category.all
-    @product = Product.find(params[:id])
+    all_categories
+    find_product
   end
 
   def update
-    @product = Product.find(params[:id])
-    if @product.update(product_params)
+    find_product
+    if update_product
       redirect_to products_path
     else
       render 'edit'
@@ -43,18 +49,11 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    @product = Product.find(params[:id])
-    if @product.destroy
-      redirect_to users_path(id: session[:user_id])
+    if delete_product
+      redirect_to users_path(id: current_user.id)
     else
       render 'show'
     end
   end
-
-  private
-
-    def product_params
-      params.require(:product).permit(:name, :price, :image, :category_id)
-    end
 
 end

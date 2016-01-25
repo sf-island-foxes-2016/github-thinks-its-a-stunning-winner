@@ -1,0 +1,18 @@
+<div class="product-show-container">
+<h2><%=@product.name%></h2>
+<div class="product-detail-container">
+<img class="well" src="<%=@product.image%>"></img>
+<ul>
+  <%="Stock: #{@product.stock}"%><br>
+  <%= "Price: $#{@product.price}" %>
+  <br><button class="cartbtn" id="<%=@product.id%>">Add to Cart</button>
+</ul>
+</div>
+<div class="nav navbar">
+<% if admin? %>
+    <li><%= link_to 'Edit', edit_product_path %></li>
+    <li><%=link_to 'Delete', product_path, method: :delete, data: { confirm: "Delete #{@product.name}?"}%></li>
+<%end%>
+    <li><%= link_to 'Home', root_path %></li>
+  </div>
+</div>

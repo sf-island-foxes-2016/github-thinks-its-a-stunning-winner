@@ -1,48 +1,45 @@
 class CartsController < ApplicationController
-  before_action :login_check
+  before_action :logged_in?
+  before_action :authorize, only: [:index]
+
+  include CartsHelper
 
   def index
+    all_carts
+    puts @carts
   end
 
   def new
+    new_cart
   end
 
   def create
-    puts "Create is running, params are #{params}"
-    @product = Product.find(params[:product_id])
-    @product.add_to_cart(params[:id])
-    redirect_to cart_path
+    if create_cart
+      redirect_to action: "index"
+    else
+      render 'new'
+    end
   end
 
   def show
-    @cart = Cart.current(params[:id])
+    find_cart
   end
 
   def edit
+    find_cart
   end
 
   def update
-    puts "Update is running"
-   @product = Product.find(params[:product_id])
-    @product.add_to_cart(params[:id])
-    @cart = Cart.find(params[:id])
-    if request.xhr?
-      render :text => @cart.products.count
+    find_cart
+    if update_cart
+      redirect_to action: "index"
     else
-      flash[:success] = "You did a thing"
+      render 'edit'
     end
   end
 
   def destroy
+    delete_cart
+      redirect_to action: "index"
   end
-
-  private
-
-    def cart_params
-      # params.require(:product_id).permit(:quantity)
-    end
-
-
-
-
 end

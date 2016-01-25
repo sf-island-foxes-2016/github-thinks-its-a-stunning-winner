@@ -13,17 +13,14 @@ class ApplicationController < ActionController::Base
   end
 
   def admin?
-    current_user && current_user.title == "admin"
+    current_user && current_user.admin == true
   end
   helper_method :admin?
 
-  def login_check
+  def logged_in?
     redirect_to '/login' unless current_user
+    true
   end
-  helper_method :current_user
-
-  def all_categories
-    Category.all
-  end
+  helper_method :logged_in?
 
 end

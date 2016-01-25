@@ -1,0 +1,15 @@
+<h1>Your Shopping Cart</h1>
+
+<%= render 'form' %>
+
+<br>
+<%=link_to 'Delete Cart', cart_path, method: :delete, data: { confirm: "Delete #{@cart.id}?"}%>
+<br>
+<%= link_to 'Back', carts_path %>
+<br>
+<p>Total Cart Subtotal: $<%= current_cart.sub_total %></p>
+<p>Total Cart Taxes: $<%= current_cart.tax_amount %></p>
+<p>Total Cart Shipping: $<%= current_cart.shipping_cost %></p>
+<p>Total Cart Handling: $<%= current_cart.handling_charge %></p>
+<p>Total Cart Cost: $<%= current_cart.total %></p>
+

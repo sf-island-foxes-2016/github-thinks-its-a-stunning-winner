@@ -1,11 +1,9 @@
 class SessionsController < ApplicationController
 
-  def new
-  end
+  include SessionsHelper
 
   def create
     username = params[:session][:username]
-    puts username
     user = User.find_by_username(username)
     if user && user.authenticate(params[:session][:password])
       session[:user_id] = user.id

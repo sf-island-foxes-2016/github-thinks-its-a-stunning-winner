@@ -4,9 +4,9 @@ require 'rails_helper'
 RSpec.describe UsersController, type: :controller do
 
   describe UsersController do
-    let(:user) { FactoryGirl.create :user}
-    let(:admin) { User.create(id: 2, username: 'admin', title: 'admin', password: "password")}
-    let(:attributes_user) { FactoryGirl.attributes_for :user}
+    let(:new_user) { FactoryGirl.create :user, :non_admin }
+    let(:admin) { FactoryGirl.create :user, :admin }
+    let(:attributes_user) { FactoryGirl.attributes_for :user, :non_admin}
 
     describe "GET #index" do
       before(:each) do
@@ -56,14 +56,13 @@ RSpec.describe UsersController, type: :controller do
         session[:user_id] = admin.id
       end
         it 'decrements users by one' do
-          user_id = user.id
+            post :create, :user => attributes_user
           expect {
-            delete :destroy, id: user_id
-            }.to change{ User.count }.by(-1)
+            delete :destroy, id: 1}.to change{ User.count }.by(-1)
           end
           it 'redirects to the root path' do
-            user_id = user.id
-            delete :destroy, id: user_id
+            post :create, :user => attributes_user
+            delete :destroy, id: 1
             expect(response.status).to eq(302)
           end
         end

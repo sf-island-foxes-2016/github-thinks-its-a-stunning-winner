@@ -15,8 +15,10 @@ class Order < ActiveRecord::Base
   end
 
   def ship
+    self.cart_products.each do |cart_product|
+      cart_product.product.ship(cart_product.quantity)
+    end
     #package items
-    #change inventory status to shipped for each
     #deliver to shipper
     #pay for shipment
   end
