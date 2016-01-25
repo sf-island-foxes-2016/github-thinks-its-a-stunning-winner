@@ -1,0 +1,8 @@
+<% @cart_products.each do |cart_product| %>
+    <em><%=cart_product.id %> </em>
+    <b><%= link_to "Edit", edit_cart_product_path(cart_product.id) %></b>
+    <b><%=link_to 'Delete', cart_product_path(cart_product.id), method: :delete, data: { confirm: "Delete #{cart_product.id}?"}%></b>
+    <br>
+<%end%>
+    <b><%= link_to "Add cart_product", new_cart_product_path %></b>
+

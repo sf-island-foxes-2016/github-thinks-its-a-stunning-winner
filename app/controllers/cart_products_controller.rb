@@ -14,7 +14,7 @@ class CartProductsController < ApplicationController
 
   def create
     if create_cart_product
-      redirect_to index
+      redirect_to action: "index"
     else
       render 'new'
     end
@@ -31,7 +31,7 @@ class CartProductsController < ApplicationController
   def update
     find_cart_product
     if update_cart_product
-      redirect_to index
+      redirect_to action: "index"
     else
       render 'edit'
     end
@@ -39,6 +39,6 @@ class CartProductsController < ApplicationController
 
   def destroy
     delete_cart_product
-    redirect_to index
+    redirect_to action: "index"
   end
 end

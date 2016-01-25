@@ -6,6 +6,7 @@ class CartsController < ApplicationController
 
   def index
     all_carts
+    puts @carts
   end
 
   def new
@@ -14,7 +15,7 @@ class CartsController < ApplicationController
 
   def create
     if create_cart
-      redirect_to index
+      redirect_to action: "index"
     else
       render 'new'
     end
@@ -31,7 +32,7 @@ class CartsController < ApplicationController
   def update
     find_cart
     if update_cart
-      redirect_to index
+      redirect_to action: "index"
     else
       render 'edit'
     end
@@ -39,6 +40,6 @@ class CartsController < ApplicationController
 
   def destroy
     delete_cart
-    redirect_to index
+      redirect_to action: "index"
   end
 end
